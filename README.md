@@ -1,10 +1,12 @@
 # Gleipnir
 
-A program to compute the Nikolayevsky or pre-Einstein derivation on Lie algebras with a parameter, as defined in 
+A program to study the Nikolayevsky derivation on Lie algebras with a parameter.
+
+The Nikolayevksy (or pre-Einstein) derivation of a Lie algebra g was defined in 
 
 Yuri Nikolayevsky. *Einstein solvmanifolds and the pre-Einstein derivation*. [Trans. Amer. Math. Soc. 363 (2011), 3935-3958](https://doi.org/10.1090/S0002-9947-2011-05045-2)
 
-The Nikolayevsky derivation of a Lie algebra g is the unique (up to automorphisms) *semisimple* derivation N such that 
+It is the unique (up to automorphisms) *semisimple* derivation N such that 
 
 	(*)	tr(ND)=tr D, D in Der(g)
 	
@@ -12,7 +14,9 @@ The nilradical in Der(g) can be identified with the null space of the trace form
 
 	n = {X in Der(g) : tr(ND)=0 for all D in Der(g)}
 
-**Gleipnir** is also able to compute the centralizer of N in n. This is useful in order to compute the space of *all* derivations N verifying (*).
+If the Lie algebra does not contain parameters, N and n can be computed explicitly. **Gleipnir** is also able to compute the centralizer of N in n. This is useful in order to compute the space of *all* derivations N verifying (*).
+
+In the presence of parameters, **Gleipnir** is not always capable of producing the Nikolayevsky derivation N and the null space n. In this case, it only computes a space that is guaranteed to contain N+n.
 
 This program has been used in the calculations leading to Proposition 2.7 in
 
