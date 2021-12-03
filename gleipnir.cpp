@@ -98,7 +98,7 @@ auto centralizer(ex N, const VectorSpace<DifferentialForm>& W, const GL& gl) {
 /** Return the set of linear equations that a matrix should satisfy in order to define a derivation
 	@param G a Lie group of dimension n
 	@param gl The Lie algebra of GL(n,R)
-	@param matrix a square matrix of order n
+	@param matrix an element of gl
 	@result the equations that must be satisfied for the matrix to define a derivation of the Lie algebra of G
 */	
 auto derivation_when(const LieGroup& G, const GL& gl, ex matrix) {
@@ -179,7 +179,8 @@ void study_group(const LieGroup& G) {
 }
 
 
-int main() {
-	for (auto& G : NonniceNilpotentLieGroups7()) 
+int main(int argv, char** argc) {
+	if (argv==2) study_group(AbstractLieGroup<false>(argc[1]));
+	else for (auto& G : NilpotentLieGroups7()) 
 		study_group(*G);	
 }

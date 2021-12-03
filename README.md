@@ -36,3 +36,16 @@ or possibly
 	
 	CPLUS_INCLUDE_PATH=/path/to/wedge make
 
+## Usage
+
+To invoke the program on a single Lie algebra without parameters, pass it as an argument, as in 
+
+	./gleipnir 0,0,12,0,24+13,14-23,15-26+2*34
+
+Invoke **Gleipnir** without parameters to run it over all nilpotent Lie algebras of dimension 7, as appearing in 
+
+M.P. Gong. *Classification of nilpotent Lie algebras of dimension 7 (over algebraically closed fields and R)*, Thesis (Ph.D.)--University of Waterloo (Canada), 1998.
+
+
+
+
