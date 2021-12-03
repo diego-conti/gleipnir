@@ -149,6 +149,9 @@ public:
 				result<<"if diagonalizable, "<<N;				
 			return result.str() ;
 	}
+	bool computed() const {
+		return derivation_when.empty() && is_diagonal();
+	}
 };
 
 
@@ -157,12 +160,17 @@ void study_group(const LieGroup& G) {
 	GL gl(G.Dimension());
 	auto nik_like_derivations=nikolayevsky_like_derivations_parametric(G,gl);
 	cout<<"Lie algebra:"<<horizontal(G.StructureConstants())<<endl;
-	cout<<"Nikolayevsky derivation: "<<Nikolayevsky(G,gl,nik_like_derivations.N).to_string()<<endl;	
+	auto nik=Nikolayevsky(G,gl,nik_like_derivations.N);
+	cout<<"Nikolayevsky derivation: "<<nik.to_string()<<endl;	
 	auto centralizer_of_nik=centralizer(nik_like_derivations.N,nik_like_derivations.W,gl);	//compute a space which contains the centralizer of the Nikolayevsky derivation inside the null space of the trace form
 	print_derivations(G,gl);
 	if (nik_like_derivations.N.is_zero()) {cout<<"Nikolayevsky derivation is zero"<<endl; return;}	
-	cout<<"centralizer contained in space of dimension "<<centralizer_of_nik.Dimension()<<endl;
-	if (!centralizer_of_nik.Dimension()) return;
+	if (nik.computed() && !centralizer_of_nik.Dimension()) 
+	{
+		cout<<"trivial centralizer"<<endl; 
+		return;
+	}
+	cout<<"Centralizer contained in space of dimension "<<centralizer_of_nik.Dimension()<<endl;
 	auto generic_element=gl.glToMatrix(centralizer_of_nik.GenericElement());
 	cout<<"generic element "<<generic_element<<endl;
 	auto conditions_for_element_of_centralizer_to_be_a_derivation=derivation_when(G,gl,centralizer_of_nik.GenericElement());
