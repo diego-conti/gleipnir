@@ -165,7 +165,9 @@ void study_group(const LieGroup& G) {
 	if (!centralizer_of_nik.Dimension()) return;
 	auto generic_element=gl.glToMatrix(centralizer_of_nik.GenericElement());
 	cout<<"generic element "<<generic_element<<endl;
-	cout<<"derivation when "<<derivation_when(G,gl,centralizer_of_nik.GenericElement())<<endl;
+	auto conditions_for_element_of_centralizer_to_be_a_derivation=derivation_when(G,gl,centralizer_of_nik.GenericElement());
+	if (!conditions_for_element_of_centralizer_to_be_a_derivation.empty())
+		cout<<"derivation when the following are zero: "<<conditions_for_element_of_centralizer_to_be_a_derivation<<endl;
 }
 
 
