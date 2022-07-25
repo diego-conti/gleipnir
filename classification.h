@@ -19,8 +19,7 @@
 #ifndef CLASSIFICATION_H
 #define CLASSIFICATION_H
 
-#include <vector>
-#include <wedge/liegroup.h>
+#include <wedge/wedge.h>
 
 
 using namespace Wedge;

@@ -20,21 +20,24 @@ In the presence of parameters, **Gleipnir** is not always capable of producing t
 
 This program has been used in the calculations leading to Proposition 2.7 in
 
-Diego Conti and Federico A. Rossi. *Indefinite nilsolitons and Einstein solvmanifolds*. [arXiv:2105.09209](https://www.arxiv.org/abs/2105.09209)
+Diego Conti and Federico A. Rossi. *Indefinite nilsolitons and Einstein solvmanifolds*. [https://doi.org/10.1007/s12220-021-00850-7](Journal of Geometric Analysis (2022) 32:88 )
 
 The code is based on joint work with Federico A. Rossi, and partly taken from [DEMONbLAST](https://github.com/diego-conti/DEMONbLAST)
 
 ## Requirements
 
-*Gleipnir* requires a modern C++ compiler, [CLN](https://www.ginac.de/CLN/), [gmp](https://gmplib.org/) and [Wedge](https://github.com/diego-conti/wedge)
+*Gleipnir* requires [cmake](https://cmake.org/) and [Wedge](https://github.com/diego-conti/wedge)
 
 To compile, run
 
-	make
+	mkdir build
+	cd build
+	cmake ..
+	cmake --build .
 
-or possibly
-	
-	CPLUS_INCLUDE_PATH=/path/to/wedge make
+You may need to set the WEDGE_PATH environment variable to point to your installation of Wedge, e.g.
+
+	export WEDGE_PATH=/home/user/wedge
 
 ## Usage
 

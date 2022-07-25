@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.10)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+add_compile_options(-Wctor-dtor-privacy -Wreorder -Wold-style-cast -Wsign-promo -Wchar-subscripts -Winit-self -Wmissing-braces -Wparentheses -Wreturn-type -Wswitch -Wtrigraphs -Wextra -Wno-sign-compare -Wno-narrowing -Wno-attributes)
+project(Gleipnir VERSION 0.2)
+set(SRC classification.h  derivations.h  horizontal.h  linearsolve.h gleipnir.cpp)
+add_executable(gleipnir ${SRC})
+target_link_libraries(gleipnir PUBLIC wedge ginac cocoa gmp)
+target_link_directories(gleipnir PUBLIC $ENV{WEDGE_PATH}/lib)
+target_include_directories(gleipnir PUBLIC $ENV{WEDGE_PATH}/include)
+

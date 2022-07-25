@@ -19,19 +19,7 @@
 #ifndef DERIVATIONS_H
 #define DERIVATIONS_H
 
-
-#include <list>
-#include <vector>
-#include <iostream>
-#include <ginac/ginac.h>
-#include "wedge/coordinates.h"
-#include "wedge/liegroup.h"
-#include "wedge/tensor.h"
-#include "wedge/latex.h"
-#include "wedge/liesubgroup.h"
-#include "wedge/manifoldwith.h"
-#include "wedge/repgl.h"
-#include <wedge/bilinearform.h>
+#include <wedge/wedge.h>
 #include "linearsolve.h"
 
 using namespace GiNaC;

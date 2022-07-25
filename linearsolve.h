@@ -18,9 +18,7 @@
 #ifndef LINEARSOLVE_H
 #define LINEARSOLVE_H
 
-#include <wedge/parameters.h>
-#include <wedge/expressions.h>
-#include <wedge/lambda.h>
+#include <wedge/wedge.h>
 
 namespace Wedge {
 namespace linear_impl {
@@ -73,16 +71,16 @@ protected:
 public:
   template< typename ListOfEquations>
   AbstractPolynomialEquations(ListOfEquations&& eqns) : 
-    equations{expand(std::forward<ListOfEquations>(eqns))},
-    variables{linear_impl::get_variables<Variable>(equations)}, 
-    sol{DefaultLinAlgAlgorithms::lsolve(lst{},variables)} 
+    equations(expand(std::forward<ListOfEquations>(eqns))),
+    variables(linear_impl::get_variables<Variable>(equations)), 
+    sol(DefaultLinAlgAlgorithms::lsolve(lst{},variables)) 
   {
   }
   template< typename ListOfEquations, typename Variables>
   AbstractPolynomialEquations(ListOfEquations&& eqns, Variables&& variables) : 
-    equations{expand(std::forward<ListOfEquations>(eqns))},
-    variables{std::forward<Variables>(variables)}, 
-    sol{DefaultLinAlgAlgorithms::lsolve(lst{},variables)} 
+    equations(expand(std::forward<ListOfEquations>(eqns))),
+    variables(std::forward<Variables>(variables)), 
+    sol(DefaultLinAlgAlgorithms::lsolve(lst{},variables))
   {
   }
   bool eliminate_linear_equations() {
